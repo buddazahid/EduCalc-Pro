@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>EduCalc Pro – Student Percentage & Grade Calculator</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <h1 class="brand">📊 EduCalc Pro</h1>
+        <div class="controls">
+          <button id="themeToggle" class="btn small" aria-pressed="false">Toggle Dark</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="container main-grid">
+      <section class="card form-card" aria-labelledby="form-heading">
+        <h2 id="form-heading">Enter Student Details</h2>
+
+        <form id="calcForm" novalidate>
+          <label class="label">Student Name
+            <input id="studentName" name="studentName" type="text" placeholder="Full name" autocomplete="name" required>
+          </label>
+
+          <label class="label">Education Type
+            <select id="educationType" name="educationType" required>
+              <option value="" data-total="">Select education type</option>
+              <option value="sslc" data-total="625">SSLC (625 Marks)</option>
+              <option value="karnataka_puc" data-total="600">Karnataka PUC (600 Marks)</option>
+              <option value="cbse_sslc" data-total="625">CBSE SSLC (625 Marks)</option>
+              <option value="cbse_puc" data-total="625">CBSE PUC (625 Marks)</option>
+              <option value="cbse_degree" data-total="3000">CBSE Degree (3000 Marks)</option>
+              <option value="icse_sslc" data-total="500">ICSE SSLC (500 Marks)</option>
+              <option value="icse_puc" data-total="600">ICSE PUC (600 Marks)</option>
+              <option value="icse_degree" data-total="3000">ICSE Degree (3000 Marks)</option>
+              <option value="general_degree" data-total="3000">General Degree (3000 Marks)</option>
+            </select>
+          </label>
+
+          <label class="label">Obtained Marks
+            <input id="obtainedMarks" name="obtainedMarks" type="number" step="0.01" placeholder="e.g. 480" required>
+          </label>
+
+          <div class="form-row">
+            <button type="button" id="resetBtn" class="btn">Reset</button>
+            <button type="button" id="printBtn" class="btn">Print Result</button>
+            <button type="button" id="pdfBtn" class="btn primary">Download PDF</button>
+          </div>
+
+          <p class="hint">Total Marks: <span id="totalMarks">—</span></p>
+          <div id="errorMsg" class="error" role="alert" aria-live="assertive"></div>
+        </form>
+      </section>
+
+      <section class="card result-card" id="resultArea" aria-live="polite">
+        <div id="resultInner" class="result-inner empty">
+          <p class="muted">Fill the form to see the live result here.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <p><strong>EduCalc Pro</strong> – Student Percentage & Grade Calculator</p>
+        <p class="muted">Offline, responsive, and accurate — no backend required.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
